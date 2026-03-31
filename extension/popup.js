@@ -13,7 +13,6 @@ const state = {
   feeData: null,
   providers: { mobile: [], bank: [] },
   settings: {
-    compareRate: 2,
     theme: 'light',
     autoDelete: '720', // 24h=24, 7d=168, 30d=720, never=never
     impactUnit: 'all',
@@ -69,14 +68,14 @@ const els = {
   modal: document.getElementById('settings-modal'),
   modalClose: document.querySelector('.modal-close'),
   modalOverlay: document.querySelector('.modal-overlay'),
-  compareRateSelect: document.getElementById('compare-rate'),
   themeBtns: document.querySelectorAll('.theme-btn'),
   clearHistoryBtn: document.getElementById('clear-history'),
   
   // New Settings
   autoDeleteSelect: document.getElementById('auto-delete'),
   impactUnitSelect: document.getElementById('impact-unit'),
-  taxBreakdownCheckbox: document.getElementById('tax-breakdown')
+  taxBreakdownCheckbox: document.getElementById('tax-breakdown'),
+  donateBtn: document.getElementById('btn-donate')
 };
 
 // Initialize
@@ -109,10 +108,12 @@ function saveSettings() {
 }
 
 function updateSettingsUI() {
-  els.compareRateSelect.value = state.settings.compareRate;
   els.themeBtns.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.theme === state.settings.theme);
   });
+  
+  // Apply theme to body
+  document.body.setAttribute('data-theme', state.settings.theme);
   
   // New settings
   if (els.autoDeleteSelect) {
@@ -304,9 +305,17 @@ function setupListeners() {
       state.settings.theme = btn.dataset.theme;
       els.themeBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      document.body.setAttribute('data-theme', state.settings.theme);
       saveSettings();
     });
   });
+  
+  // Donate button
+  if (els.donateBtn) {
+    els.donateBtn.addEventListener('click', () => {
+      window.open('https://www.buymeacoffee.com/pochi', '_blank');
+    });
+  }
   
   // Clear history
   els.clearHistoryBtn.addEventListener('click', () => {

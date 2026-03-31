@@ -10,6 +10,17 @@
   --border: #e0e0e0;
 }
 
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --green: #4a7c23;
+  --green-light: #5a9c33;
+  --black: #e0e0e0;
+  --white: #1a1a1a;
+  --gray: #2d2d2d;
+  --gray-dark: #999999;
+  --border: #404040;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -929,4 +940,34 @@ body {
 .tax-row span:last-child {
   color: var(--black);
   font-weight: 700;
+}
+
+/* Donate Button */
+.donate-btn {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid var(--green);
+  background: var(--green);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.donate-btn:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+}
+
+.donate-btn:active {
+  transform: translateY(0);
 }
