@@ -1,0 +1,131 @@
+name: Validate JSON Data
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'extension/data/**.json'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'extension/data/**.json'
+  workflow_dispatch:
+
+jobs:
+  validate-json:
+    name: Validate JSON Files
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+      
+      - name: Validate JSON syntax
+        run: |
+          echo "Validating JSON files in extension/data directory..."
+          
+          exit_code=0
+          
+          for file in extension/data/*.json; do
+            if [ -f "$file" ]; then
+              echo "Checking: $file"
+              if jq empty "$file" 2>/dev/null; then
+                echo "  [PASS] Valid JSON: $file"
+              else
+                echo "  [FAIL] Invalid JSON: $file"
+                exit_code=1
+              fi
+            fi
+          done
+          
+          if [ $exit_code -eq 0 ]; then
+            echo ""
+            echo "All JSON files are valid!"
+          else
+            echo ""
+            echo "Some JSON files are invalid. Please fix the errors above."
+            exit 1
+          fi
+      
+      - name: Validate JSON structure
+        run: |
+          echo ""
+          echo "Validating JSON structure against schema..."
+          
+          exit_code=0
+          
+          for file in extension/data/*.json; do
+            if [ -f "$file" ]; then
+              echo "Checking structure: $file"
+              
+              # Check required top-level fields
+              if ! jq -e 'has("provider") and has("country") and has("currency") and has("bands")' "$file" >/dev/null 2>&1; then
+                echo "  [FAIL] Missing required fields (provider, country, currency, bands): $file"
+                exit_code=1
+                continue
+              fi
+              
+              # Check bands is an array
+              if ! jq -e '.bands | type == "array"' "$file" >/dev/null 2>&1; then
+                echo "  [FAIL] 'bands' must be an array: $file"
+                exit_code=1
+                continue
+              fi
+              
+              # Check each band has required fields
+              invalid_bands=$(jq '[.bands[] | select(has("min") and has("max") and has("withdraw") and has("send_registered") and has("send_unregistered") | not)] | length' "$file")
+              
+              if [ "$invalid_bands" -gt 0 ]; then
+                echo "  [FAIL] $invalid_bands band(s) missing required fields (min, max, withdraw, send_registered, send_unregistered): $file"
+                exit_code=1
+                continue
+              fi
+              
+              # Check numeric values
+              non_numeric=$(jq '[.bands[] | select((.min | type != "number") or (.max | type != "number") or (.withdraw | type != "number") or (.send_registered | type != "number") or (.send_unregistered | type != "number"))] | length' "$file")
+              
+              if [ "$non_numeric" -gt 0 ]; then
+                echo "  [FAIL] $non_numeric band(s) have non-numeric values: $file"
+                exit_code=1
+                continue
+              fi
+              
+              echo "  [PASS] Valid structure: $file"
+            fi
+          done
+          
+          if [ $exit_code -eq 0 ]; then
+            echo ""
+            echo "All JSON files have valid structure!"
+          else
+            echo ""
+            echo "Some JSON files have structural issues. Please fix the errors above."
+            exit 1
+          fi
+      
+      - name: Generate validation report
+        if: always()
+        run: |
+          echo ""
+          echo "Validation Report"
+          echo "==================="
+          echo ""
+          
+          for file in extension/data/*.json; do
+            if [ -f "$file" ]; then
+              provider=$(jq -r '.provider' "$file")
+              country=$(jq -r '.country' "$file")
+              bands_count=$(jq '.bands | length' "$file")
+              
+              echo "File: $file"
+              echo "  Provider: $provider"
+              echo "  Country: $country"
+              echo "  Fee Bands: $bands_count"
+              echo ""
+            fi
+          done

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Pochi - Tanzania Mobile Money Fee Calculator",
+  "version": "1.0.0",
+  "description": "Calculate M-Pesa and Tigo Pesa fees with global comparison awareness",
+  "permissions": ["storage"],
+  "host_permissions": ["file:///*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["data/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+

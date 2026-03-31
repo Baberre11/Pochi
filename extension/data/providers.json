@@ -1,0 +1,62 @@
+{
+  "providers": {
+    "mobile": [
+      {
+        "id": "mpesa",
+        "name": "M-Pesa",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "tigopesa",
+        "name": "Tigo Pesa",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "airtel",
+        "name": "Airtel Money",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "halopesa",
+        "name": "HaloPesa",
+        "country": "Tanzania",
+        "currency": "TZS"
+      }
+    ],
+    "bank": [
+      {
+        "id": "crdb",
+        "name": "CRDB Bank",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "nmb",
+        "name": "NMB Bank",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "kcb",
+        "name": "KCB Bank",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "stanbic",
+        "name": "Stanbic Bank",
+        "country": "Tanzania",
+        "currency": "TZS"
+      },
+      {
+        "id": "equity",
+        "name": "Equity Bank",
+        "country": "Tanzania",
+        "currency": "TZS"
+      }
+    ]
+  }
+}

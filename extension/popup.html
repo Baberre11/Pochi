@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pochi - Fee Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header with Actions -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon">P</span>
+        <h1 class="brand-name">Pochi</h1>
+      </div>
+      <div class="header-actions">
+        <button id="btn-lang" class="lang-btn" title="Switch Language">EN/SW</button>
+        <button id="btn-settings" class="icon-btn" title="Settings">*</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-body">
+      <!-- Provider Tabs -->
+      <div class="segmented-control">
+        <button class="segment active" data-type="mobile">Mobile Money</button>
+        <button class="segment" data-type="bank">Banks</button>
+      </div>
+
+      <!-- Provider Select -->
+      <div class="field-group">
+        <label class="field-label">Select Provider</label>
+        <div class="custom-select">
+          <select id="provider" class="select-native">
+            <!-- Populated dynamically -->
+          </select>
+          <span class="select-arrow">▼</span>
+        </div>
+      </div>
+
+      <!-- Transaction Type -->
+      <div class="field-group">
+        <label class="field-label">Transaction</label>
+        <div class="txn-types">
+          <button class="txn-btn active" data-mode="send">
+            <span class="txn-icon">-></span>
+            <span class="txn-text">Send</span>
+          </button>
+          <button class="txn-btn" data-mode="paybill">
+            <span class="txn-icon">[]</span>
+            <span class="txn-text">Pay Bill</span>
+          </button>
+          <button class="txn-btn" data-mode="withdraw">
+            <span class="txn-icon">ATM</span>
+            <span class="txn-text">Withdraw</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Recipient Type (only for Send) -->
+      <div id="recipient-group" class="field-group">
+        <label class="field-label">Recipient</label>
+        <div class="toggle-pill">
+          <input type="radio" name="recipient" id="rec-reg" value="reg" checked>
+          <label for="rec-reg" class="pill-label">Registered</label>
+          <input type="radio" name="recipient" id="rec-unreg" value="unreg">
+          <label for="rec-unreg" class="pill-label">Unregistered</label>
+        </div>
+      </div>
+
+      <!-- Amount Input -->
+      <div class="field-group amount-group">
+        <label class="field-label">Amount</label>
+        <div class="amount-input-wrap">
+          <span class="currency">TZS</span>
+          <input 
+            type="text" 
+            id="amount" 
+            class="amount-field" 
+            placeholder="0" 
+            autocomplete="off"
+          >
+        </div>
+        <div class="quick-amounts">
+          <button class="quick-btn" data-amount="5000">5K</button>
+          <button class="quick-btn" data-amount="10000">10K</button>
+          <button class="quick-btn" data-amount="50000">50K</button>
+          <button class="quick-btn" data-amount="100000">100K</button>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div id="results-card" class="results-card hidden">
+        <div class="result-main">
+          <span class="result-fee-label">Fee</span>
+          <span id="fee-amount" class="result-fee-value">TZS 0</span>
+        </div>
+        <div class="result-details">
+          <div class="result-row">
+            <span>You Send</span>
+            <span id="send-amount">TZS 0</span>
+          </div>
+          <div class="result-row total">
+            <span>Total Cost</span>
+            <span id="total-amount">TZS 0</span>
+          </div>
+          <div class="result-row percentage">
+            <span>Effective Rate</span>
+            <span id="percentage">0%</span>
+          </div>
+        </div>
+        
+        <!-- Daily Impact Card -->
+        <div id="impact-card" class="impact-card hidden">
+          <div class="impact-header">DAILY IMPACT</div>
+          <div class="impact-content">
+            <span class="impact-icon" id="impact-icon">[x]</span>
+            <p class="impact-text" id="impact-text">This fee could have bought 1kg Maize Flour</p>
+          </div>
+        </div>
+        
+        <!-- Trust Tax Message -->
+        <div class="trust-tax-box">
+          <p class="trust-tax-title">THE HIDDEN TAX ON TRUST</p>
+          <p class="trust-tax-text">High fees break trust. When you see <strong id="leakage-percentage">0%</strong> disappear, you return to cash. Cash excludes you from credit, savings, and growth.</p>
+          <p class="virtuous-cycle">The Virtuous Cycle: Transparency → Demand → Lower Fees → Inclusion → Growth</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- History Section -->
+    <section class="history-section">
+      <h3 class="section-title">Recent</h3>
+      <div id="history-list" class="history-list">
+        <p class="empty-state">No calculations yet</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <button id="btn-clear-footer" class="clear-btn">Clear History</button>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button class="modal-close">X</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <label class="setting-label">Compare with</label>
+          <select id="compare-rate" class="setting-select">
+            <option value="2">Kenya (2%)</option>
+            <option value="1.5">Ghana (1.5%)</option>
+            <option value="1">Uganda (1%)</option>
+            <option value="0.5">Custom</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label class="setting-label">Theme</label>
+          <div class="theme-toggle">
+            <button class="theme-btn active" data-theme="light">Light</button>
+            <button class="theme-btn" data-theme="dark">Dark</button>
+          </div>
+        </div>
+        <div class="setting-item">
+          <button id="clear-history" class="text-btn">Clear History</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="livingStandards.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

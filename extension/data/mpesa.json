@@ -1,0 +1,263 @@
+{
+  "provider": "M-Pesa",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "bands": [
+    {
+      "min": 1,
+      "max": 999,
+      "withdraw": 350,
+      "send_registered": 10,
+      "send_unregistered": 500,
+      "pay_bill": 0
+    },
+    {
+      "min": 1000,
+      "max": 1999,
+      "withdraw": 350,
+      "send_registered": 20,
+      "send_unregistered": 500,
+      "pay_bill": 0
+    },
+    {
+      "min": 2000,
+      "max": 2999,
+      "withdraw": 600,
+      "send_registered": 100,
+      "send_unregistered": 500,
+      "pay_bill": 0
+    },
+    {
+      "min": 3000,
+      "max": 3999,
+      "withdraw": 800,
+      "send_registered": 150,
+      "send_unregistered": 1300,
+      "pay_bill": 0
+    },
+    {
+      "min": 4000,
+      "max": 4999,
+      "withdraw": 1000,
+      "send_registered": 200,
+      "send_unregistered": 1300,
+      "pay_bill": 0
+    },
+    {
+      "min": 5000,
+      "max": 6999,
+      "withdraw": 1300,
+      "send_registered": 250,
+      "send_unregistered": 1800,
+      "pay_bill": 0
+    },
+    {
+      "min": 7000,
+      "max": 9999,
+      "withdraw": 1600,
+      "send_registered": 300,
+      "send_unregistered": 1800,
+      "pay_bill": 0
+    },
+    {
+      "min": 10000,
+      "max": 14999,
+      "withdraw": 1900,
+      "send_registered": 350,
+      "send_unregistered": 2400,
+      "pay_bill": 0
+    },
+    {
+      "min": 15000,
+      "max": 19999,
+      "withdraw": 2200,
+      "send_registered": 450,
+      "send_unregistered": 2400,
+      "pay_bill": 0
+    },
+    {
+      "min": 20000,
+      "max": 29999,
+      "withdraw": 2800,
+      "send_registered": 550,
+      "send_unregistered": 3000,
+      "pay_bill": 0
+    },
+    {
+      "min": 30000,
+      "max": 39999,
+      "withdraw": 3200,
+      "send_registered": 700,
+      "send_unregistered": 3500,
+      "pay_bill": 0
+    },
+    {
+      "min": 40000,
+      "max": 49999,
+      "withdraw": 3500,
+      "send_registered": 900,
+      "send_unregistered": 4000,
+      "pay_bill": 0
+    },
+    {
+      "min": 50000,
+      "max": 99999,
+      "withdraw": 4500,
+      "send_registered": 1100,
+      "send_unregistered": 5500,
+      "pay_bill": 0
+    },
+    {
+      "min": 100000,
+      "max": 199999,
+      "withdraw": 6000,
+      "send_registered": 1600,
+      "send_unregistered": 7500,
+      "pay_bill": 0
+    },
+    {
+      "min": 200000,
+      "max": 299999,
+      "withdraw": 8000,
+      "send_registered": 2100,
+      "send_unregistered": 10000,
+      "pay_bill": 0
+    },
+    {
+      "min": 300000,
+      "max": 399999,
+      "withdraw": 10000,
+      "send_registered": 2600,
+      "send_unregistered": 11000,
+      "pay_bill": 0
+    },
+    {
+      "min": 400000,
+      "max": 499999,
+      "withdraw": 11000,
+      "send_registered": 3100,
+      "send_unregistered": 12000,
+      "pay_bill": 0
+    },
+    {
+      "min": 500000,
+      "max": 599999,
+      "withdraw": 12000,
+      "send_registered": 3600,
+      "send_unregistered": 13000,
+      "pay_bill": 0
+    },
+    {
+      "min": 600000,
+      "max": 699999,
+      "withdraw": 13000,
+      "send_registered": 4100,
+      "send_unregistered": 14000,
+      "pay_bill": 0
+    },
+    {
+      "min": 700000,
+      "max": 799999,
+      "withdraw": 14000,
+      "send_registered": 4600,
+      "send_unregistered": 15000,
+      "pay_bill": 0
+    },
+    {
+      "min": 800000,
+      "max": 899999,
+      "withdraw": 15000,
+      "send_registered": 5100,
+      "send_unregistered": 16000,
+      "pay_bill": 0
+    },
+    {
+      "min": 900000,
+      "max": 999999,
+      "withdraw": 16000,
+      "send_registered": 5600,
+      "send_unregistered": 17000,
+      "pay_bill": 0
+    },
+    {
+      "min": 1000000,
+      "max": 1999999,
+      "withdraw": 18000,
+      "send_registered": 6100,
+      "send_unregistered": 20000,
+      "pay_bill": 0
+    },
+    {
+      "min": 2000000,
+      "max": 2999999,
+      "withdraw": 24000,
+      "send_registered": 6600,
+      "send_unregistered": 22000,
+      "pay_bill": 0
+    },
+    {
+      "min": 3000000,
+      "max": 3999999,
+      "withdraw": 28000,
+      "send_registered": 7100,
+      "send_unregistered": 24000,
+      "pay_bill": 0
+    },
+    {
+      "min": 4000000,
+      "max": 4999999,
+      "withdraw": 32000,
+      "send_registered": 7600,
+      "send_unregistered": 26000,
+      "pay_bill": 0
+    },
+    {
+      "min": 5000000,
+      "max": 5999999,
+      "withdraw": 36000,
+      "send_registered": 8100,
+      "send_unregistered": 28000,
+      "pay_bill": 0
+    },
+    {
+      "min": 6000000,
+      "max": 6999999,
+      "withdraw": 40000,
+      "send_registered": 8600,
+      "send_unregistered": 30000,
+      "pay_bill": 0
+    },
+    {
+      "min": 7000000,
+      "max": 7999999,
+      "withdraw": 44000,
+      "send_registered": 9100,
+      "send_unregistered": 32000,
+      "pay_bill": 0
+    },
+    {
+      "min": 8000000,
+      "max": 8999999,
+      "withdraw": 48000,
+      "send_registered": 9600,
+      "send_unregistered": 34000,
+      "pay_bill": 0
+    },
+    {
+      "min": 9000000,
+      "max": 9999999,
+      "withdraw": 52000,
+      "send_registered": 10100,
+      "send_unregistered": 36000,
+      "pay_bill": 0
+    },
+    {
+      "min": 10000000,
+      "max": 10000000,
+      "withdraw": 56000,
+      "send_registered": 10600,
+      "send_unregistered": 38000,
+      "pay_bill": 0
+    }
+  ]
+}
