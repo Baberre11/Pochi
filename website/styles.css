@@ -397,6 +397,150 @@ body {
   98%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
+/* How to Use Section */
+.how-to-use {
+  padding: 80px 20px;
+  background: var(--white);
+  border-bottom: 3px solid var(--black);
+}
+
+.steps-container {
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  background: var(--gray);
+  border: 2px solid var(--black);
+  margin-bottom: 0;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  background: var(--green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid var(--black);
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-content p {
+  color: var(--gray-dark);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.step-time {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--white);
+  padding: 4px 12px;
+  border: 1px solid var(--black);
+}
+
+.step-arrow {
+  text-align: center;
+  font-size: 24px;
+  color: var(--green);
+  font-weight: 700;
+  padding: 8px 0;
+}
+
+.highlight-step {
+  background: var(--green);
+  color: var(--white);
+}
+
+.highlight-step .step-number {
+  background: var(--white);
+  color: var(--green);
+}
+
+.highlight-step .step-content h3 {
+  color: var(--white);
+}
+
+.highlight-step .step-content p {
+  color: rgba(255,255,255,0.9);
+}
+
+.highlight-step .step-time {
+  background: var(--white);
+  color: var(--green);
+}
+
+.usage-tips {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--gray);
+  border: 3px solid var(--black);
+  padding: 32px;
+}
+
+.usage-tips h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-list li {
+  font-size: 15px;
+  padding: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  color: var(--gray-dark);
+  line-height: 1.5;
+}
+
+.tips-list li:last-child {
+  border-bottom: none;
+}
+
+.tips-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.tips-list li strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
 /* Providers Section */
 .providers {
   padding: 80px 20px;
