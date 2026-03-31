@@ -153,24 +153,88 @@
         <button class="modal-close">X</button>
       </div>
       <div class="modal-body">
-        <div class="setting-item">
-          <label class="setting-label">Compare with</label>
-          <select id="compare-rate" class="setting-select">
-            <option value="2">Kenya (2%)</option>
-            <option value="1.5">Ghana (1.5%)</option>
-            <option value="1">Uganda (1%)</option>
-            <option value="0.5">Custom</option>
-          </select>
-        </div>
-        <div class="setting-item">
-          <label class="setting-label">Theme</label>
-          <div class="theme-toggle">
-            <button class="theme-btn active" data-theme="light">Light</button>
-            <button class="theme-btn" data-theme="dark">Dark</button>
+        <!-- Features Section -->
+        <div class="setting-section">
+          <h3 class="setting-section-title">Features</h3>
+          
+          <div class="setting-item">
+            <label class="setting-label">Auto-Delete History</label>
+            <select id="auto-delete" class="setting-select">
+              <option value="24">24 Hours</option>
+              <option value="168">7 Days</option>
+              <option value="720">30 Days</option>
+              <option value="never">Never Save</option>
+            </select>
+            <p class="setting-hint">Automatically clear your calculation history</p>
           </div>
         </div>
-        <div class="setting-item">
-          <button id="clear-history" class="text-btn">Clear History</button>
+        
+        <!-- Awareness Section -->
+        <div class="setting-section">
+          <h3 class="setting-section-title">Awareness</h3>
+          
+          <div class="setting-item">
+            <label class="setting-label">Impact Unit</label>
+            <select id="impact-unit" class="setting-select">
+              <option value="all">All Categories</option>
+              <option value="food">Food</option>
+              <option value="transport">Transport</option>
+              <option value="data">Data & Internet</option>
+            </select>
+            <p class="setting-hint">Choose which daily life benchmarks to show</p>
+          </div>
+        </div>
+        
+        <!-- Advanced Section -->
+        <div class="setting-section">
+          <h3 class="setting-section-title">Advanced</h3>
+          
+          <div class="setting-item">
+            <label class="setting-toggle">
+              <span class="setting-label">Show Tax Breakdown</span>
+              <input type="checkbox" id="tax-breakdown" class="toggle-checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+            <p class="setting-hint">Display VAT (18%) and Excise Duty components</p>
+          </div>
+        </div>
+        
+        <!-- General Settings -->
+        <div class="setting-section">
+          <h3 class="setting-section-title">General</h3>
+          
+          <div class="setting-item">
+            <label class="setting-label">Compare with</label>
+            <select id="compare-rate" class="setting-select">
+              <option value="2">Kenya (2%)</option>
+              <option value="1.5">Ghana (1.5%)</option>
+              <option value="1">Uganda (1%)</option>
+              <option value="0.5">Custom</option>
+            </select>
+          </div>
+          
+          <div class="setting-item">
+            <label class="setting-label">Theme</label>
+            <div class="theme-toggle">
+              <button class="theme-btn active" data-theme="light">Light</button>
+              <button class="theme-btn" data-theme="dark">Dark</button>
+            </div>
+          </div>
+          
+          <div class="setting-item">
+            <button id="clear-history" class="text-btn">Clear History Now</button>
+          </div>
+        </div>
+        
+        <!-- Privacy Notice -->
+        <div class="privacy-notice">
+          <h4 class="privacy-title">🔒 Your Privacy Matters</h4>
+          <ul class="privacy-list">
+            <li>All calculations happen on your device</li>
+            <li>No data is sent to any server</li>
+            <li>History is stored locally in your browser only</li>
+            <li>We don't track or collect any personal information</li>
+          </ul>
         </div>
       </div>
     </div>

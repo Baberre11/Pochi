@@ -1,0 +1,23 @@
+{
+  "provider": "NMB Bank",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "note": "NMB Mobile - USSD session fee: 500 TZS. Simplified banding used in 2026 update",
+  "bands": [
+    {
+      "min": 1,
+      "max": 99999,
+      "transfer": 2500
+    },
+    {
+      "min": 100000,
+      "max": 500000,
+      "transfer": 3500
+    },
+    {
+      "min": 500001,
+      "max": 1000000,
+      "transfer": 4000
+    }
+  ]
+}

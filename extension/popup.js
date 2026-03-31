@@ -14,7 +14,10 @@ const state = {
   providers: { mobile: [], bank: [] },
   settings: {
     compareRate: 2,
-    theme: 'light'
+    theme: 'light',
+    autoDelete: '720', // 24h=24, 7d=168, 30d=720, never=never
+    impactUnit: 'all',
+    showTaxBreakdown: false
   }
 };
 
@@ -68,7 +71,12 @@ const els = {
   modalOverlay: document.querySelector('.modal-overlay'),
   compareRateSelect: document.getElementById('compare-rate'),
   themeBtns: document.querySelectorAll('.theme-btn'),
-  clearHistoryBtn: document.getElementById('clear-history')
+  clearHistoryBtn: document.getElementById('clear-history'),
+  
+  // New Settings
+  autoDeleteSelect: document.getElementById('auto-delete'),
+  impactUnitSelect: document.getElementById('impact-unit'),
+  taxBreakdownCheckbox: document.getElementById('tax-breakdown')
 };
 
 // Initialize
@@ -105,6 +113,17 @@ function updateSettingsUI() {
   els.themeBtns.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.theme === state.settings.theme);
   });
+  
+  // New settings
+  if (els.autoDeleteSelect) {
+    els.autoDeleteSelect.value = state.settings.autoDelete;
+  }
+  if (els.impactUnitSelect) {
+    els.impactUnitSelect.value = state.settings.impactUnit;
+  }
+  if (els.taxBreakdownCheckbox) {
+    els.taxBreakdownCheckbox.checked = state.settings.showTaxBreakdown;
+  }
 }
 
 // Update all UI text based on current language
@@ -308,10 +327,66 @@ function setupListeners() {
     chrome.storage.local.remove(HISTORY_KEY);
     renderHistory();
   });
+  
+  // New Settings Event Listeners
+  if (els.autoDeleteSelect) {
+    els.autoDeleteSelect.addEventListener('change', (e) => {
+      state.settings.autoDelete = e.target.value;
+      saveSettings();
+      applyAutoDelete();
+    });
+  }
+  
+  if (els.impactUnitSelect) {
+    els.impactUnitSelect.addEventListener('change', (e) => {
+      state.settings.impactUnit = e.target.value;
+      saveSettings();
+      // Re-calculate to update impact display
+      if (state.amount > 0) {
+        calculate();
+      }
+    });
+  }
+  
+  if (els.taxBreakdownCheckbox) {
+    els.taxBreakdownCheckbox.addEventListener('change', (e) => {
+      state.settings.showTaxBreakdown = e.target.checked;
+      saveSettings();
+      // Re-calculate to update tax display
+      if (state.amount > 0) {
+        calculate();
+      }
+    });
+  }
 }
 
 function closeModal() {
   els.modal.classList.add('hidden');
+}
+
+// Apply auto-delete based on setting
+async function applyAutoDelete() {
+  const autoDelete = state.settings.autoDelete;
+  
+  if (autoDelete === 'never') {
+    // Don't save any new history
+    return;
+  }
+  
+  // Clean up old history entries
+  try {
+    const res = await chrome.storage.local.get(HISTORY_KEY);
+    let history = res[HISTORY_KEY] || [];
+    const now = Date.now();
+    const hours = parseInt(autoDelete);
+    const cutoff = now - (hours * 60 * 60 * 1000);
+    
+    history = history.filter(h => h.time > cutoff);
+    await chrome.storage.local.set({ [HISTORY_KEY]: history });
+    renderHistory();
+  } catch (err) {
+    console.error('Auto-delete failed:', err);
+  }
 }
 
 // Load providers
@@ -385,6 +460,12 @@ function findBand(amount) {
 function getFee(band) {
   if (!band) return 0;
   
+  // Bank transfers use 'transfer' field
+  if (state.providerType === 'bank') {
+    return band.transfer || 0;
+  }
+  
+  // Mobile money providers
   switch (state.mode) {
     case 'withdraw': return band.withdraw || 0;
     case 'paybill': return band.pay_bill || 0;
@@ -405,6 +486,21 @@ function formatNumber(value) {
 // Format currency with comma separators
 function formatMoney(amount) {
   return 'TZS ' + formatNumber(amount);
+}
+
+// Calculate tax breakdown (VAT 18%, Excise Duty varies)
+function calculateTaxBreakdown(fee) {
+  // VAT is 18% of the fee
+  const vat = fee * 0.18;
+  // Excise duty is typically 10-15% for financial services
+  const exciseDuty = fee * 0.10;
+  const baseFee = fee - vat - exciseDuty;
+  
+  return {
+    baseFee: Math.max(0, baseFee),
+    vat: vat,
+    exciseDuty: exciseDuty
+  };
 }
 
 // Calculate
@@ -438,10 +534,42 @@ function calculate() {
   // Update Daily Impact
   updateImpactCard(fee);
   
+  // Update Tax Breakdown if enabled
+  updateTaxBreakdown(fee);
+  
   els.resultsCard.classList.remove('hidden');
   
   // Debounced save
   debounceSave(amount, fee, pct);
+}
+
+// Update tax breakdown display
+function updateTaxBreakdown(fee) {
+  const taxBreakdownEl = document.getElementById('tax-breakdown-details');
+  
+  if (!taxBreakdownEl) {
+    // Create tax breakdown element if it doesn't exist
+    const detailsDiv = document.createElement('div');
+    detailsDiv.id = 'tax-breakdown-details';
+    detailsDiv.className = 'tax-breakdown hidden';
+    detailsDiv.innerHTML = `
+      <div class="tax-row"><span>Base Fee</span><span id="tax-base">TZS 0</span></div>
+      <div class="tax-row"><span>VAT (18%)</span><span id="tax-vat">TZS 0</span></div>
+      <div class="tax-row"><span>Excise Duty (10%)</span><span id="tax-excise">TZS 0</span></div>
+    `;
+    els.resultsCard.insertBefore(detailsDiv, document.querySelector('.trust-tax-box'));
+  }
+  
+  const taxEl = document.getElementById('tax-breakdown-details');
+  if (state.settings.showTaxBreakdown) {
+    const taxes = calculateTaxBreakdown(fee);
+    document.getElementById('tax-base').textContent = formatMoney(Math.round(taxes.baseFee));
+    document.getElementById('tax-vat').textContent = formatMoney(Math.round(taxes.vat));
+    document.getElementById('tax-excise').textContent = formatMoney(Math.round(taxes.exciseDuty));
+    taxEl.classList.remove('hidden');
+  } else {
+    taxEl.classList.add('hidden');
+  }
 }
 
 // Debounce
@@ -528,12 +656,16 @@ async function renderHistory() {
 
 // Update Daily Impact Card
 function updateImpactCard(fee) {
-  if (typeof getHumanImpact !== 'function') {
+  // Use category-specific impact function if available
+  let impact;
+  if (typeof getHumanImpactByCategory === 'function' && state.settings.impactUnit !== 'all') {
+    impact = getHumanImpactByCategory(fee, state.settings.impactUnit);
+  } else if (typeof getHumanImpact === 'function') {
+    impact = getHumanImpact(fee);
+  } else {
     els.impactCard.classList.add('hidden');
     return;
   }
-  
-  const impact = getHumanImpact(fee);
   
   if (!impact) {
     els.impactCard.classList.add('hidden');
@@ -544,6 +676,7 @@ function updateImpactCard(fee) {
   const iconMap = {
     'food': '[F]',
     'transport': '[T]',
+    'data': '[D]',
     'education': '[E]',
     'utilities': '[U]',
     'housing': '[H]'

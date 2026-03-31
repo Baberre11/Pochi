@@ -91,22 +91,45 @@ jobs:
                 continue
               fi
               
-              # Check each band has required fields
-              invalid_bands=$(jq '[.bands[] | select(has("min") and has("max") and has("withdraw") and has("send_registered") and has("send_unregistered") | not)] | length' "$file")
+              # Check if it's a bank file (has 'transfer' field) or mobile money file
+              is_bank=$(jq '[.bands[] | has("transfer")] | any' "$file")
               
-              if [ "$invalid_bands" -gt 0 ]; then
-                echo "  [FAIL] $invalid_bands band(s) missing required fields (min, max, withdraw, send_registered, send_unregistered): $file"
-                exit_code=1
-                continue
-              fi
-              
-              # Check numeric values
-              non_numeric=$(jq '[.bands[] | select((.min | type != "number") or (.max | type != "number") or (.withdraw | type != "number") or (.send_registered | type != "number") or (.send_unregistered | type != "number"))] | length' "$file")
-              
-              if [ "$non_numeric" -gt 0 ]; then
-                echo "  [FAIL] $non_numeric band(s) have non-numeric values: $file"
-                exit_code=1
-                continue
+              if [ "$is_bank" == "true" ]; then
+                # Bank file validation - check for transfer field
+                invalid_bands=$(jq '[.bands[] | select(has("min") and has("max") and has("transfer") | not)] | length' "$file")
+                
+                if [ "$invalid_bands" -gt 0 ]; then
+                  echo "  [FAIL] $invalid_bands band(s) missing required fields (min, max, transfer): $file"
+                  exit_code=1
+                  continue
+                fi
+                
+                # Check numeric values for banks
+                non_numeric=$(jq '[.bands[] | select((.min | type != "number") or (.max | type != "number") or (.transfer | type != "number"))] | length' "$file")
+                
+                if [ "$non_numeric" -gt 0 ]; then
+                  echo "  [FAIL] $non_numeric band(s) have non-numeric values: $file"
+                  exit_code=1
+                  continue
+                fi
+              else
+                # Mobile money file validation - check for mobile money fields
+                invalid_bands=$(jq '[.bands[] | select(has("min") and has("max") and has("withdraw") and has("send_registered") and has("send_unregistered") | not)] | length' "$file")
+                
+                if [ "$invalid_bands" -gt 0 ]; then
+                  echo "  [FAIL] $invalid_bands band(s) missing required fields (min, max, withdraw, send_registered, send_unregistered): $file"
+                  exit_code=1
+                  continue
+                fi
+                
+                # Check numeric values for mobile money
+                non_numeric=$(jq '[.bands[] | select((.min | type != "number") or (.max | type != "number") or (.withdraw | type != "number") or (.send_registered | type != "number") or (.send_unregistered | type != "number"))] | length' "$file")
+                
+                if [ "$non_numeric" -gt 0 ]; then
+                  echo "  [FAIL] $non_numeric band(s) have non-numeric values: $file"
+                  exit_code=1
+                  continue
+                fi
               fi
               
               echo "  [PASS] Valid structure: $file"

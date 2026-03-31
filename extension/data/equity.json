@@ -1,0 +1,23 @@
+{
+  "provider": "Equity Bank",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "note": "EazzyBanking - App and USSD parity pricing",
+  "bands": [
+    {
+      "min": 1,
+      "max": 20000,
+      "transfer": 1000
+    },
+    {
+      "min": 20001,
+      "max": 150000,
+      "transfer": 1500
+    },
+    {
+      "min": 150001,
+      "max": 1000000,
+      "transfer": 2500
+    }
+  ]
+}

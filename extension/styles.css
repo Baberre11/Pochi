@@ -782,3 +782,151 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--green);
 }
+
+/* Setting Sections */
+.setting-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.setting-section:last-of-type {
+  border-bottom: none;
+}
+
+.setting-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green);
+}
+
+.setting-hint {
+  font-size: 12px;
+  color: var(--gray-dark);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Toggle Checkbox */
+.setting-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: var(--gray-dark);
+  border: 2px solid var(--black);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  transition: all 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-slider {
+  background: var(--green);
+}
+
+.toggle-checkbox:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+/* Privacy Notice */
+.privacy-notice {
+  background: var(--gray);
+  border: 2px solid var(--green);
+  padding: 20px;
+  margin-top: 24px;
+  border-radius: 0;
+}
+
+.privacy-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.privacy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-list li {
+  font-size: 13px;
+  color: var(--black);
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  font-weight: 500;
+}
+
+.privacy-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* Tax Breakdown */
+.tax-breakdown {
+  background: var(--gray);
+  border-top: 2px dashed var(--border);
+  padding: 16px 20px;
+  margin: 0;
+}
+
+.tax-breakdown.hidden {
+  display: none;
+}
+
+.tax-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-dark);
+  border-bottom: 1px solid var(--border);
+}
+
+.tax-row:last-child {
+  border-bottom: none;
+}
+
+.tax-row span:last-child {
+  color: var(--black);
+  font-weight: 700;
+}

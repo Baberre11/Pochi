@@ -1,0 +1,33 @@
+{
+  "provider": "Stanbic Bank",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "note": "Aggressive 2026 tariff for Luku/MNO transfers. App transfers: Free",
+  "bands": [
+    {
+      "min": 1,
+      "max": 9999,
+      "transfer": 100
+    },
+    {
+      "min": 10000,
+      "max": 49999,
+      "transfer": 800
+    },
+    {
+      "min": 50000,
+      "max": 99999,
+      "transfer": 1000
+    },
+    {
+      "min": 100000,
+      "max": 499999,
+      "transfer": 4500
+    },
+    {
+      "min": 500000,
+      "max": 1000000,
+      "transfer": 5000
+    }
+  ]
+}

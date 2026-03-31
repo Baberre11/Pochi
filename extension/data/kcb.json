@@ -1,0 +1,28 @@
+{
+  "provider": "KCB Bank",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "note": "KCB M-Pesa transfers and other mobile wallet transfers",
+  "bands": [
+    {
+      "min": 5000,
+      "max": 50000,
+      "transfer": 1000
+    },
+    {
+      "min": 50001,
+      "max": 100000,
+      "transfer": 1500
+    },
+    {
+      "min": 100001,
+      "max": 500000,
+      "transfer": 3000
+    },
+    {
+      "min": 500001,
+      "max": 1000000,
+      "transfer": 5000
+    }
+  ]
+}

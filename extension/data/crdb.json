@@ -1,0 +1,48 @@
+{
+  "provider": "CRDB Bank",
+  "country": "Tanzania",
+  "currency": "TZS",
+  "note": "SimBanking - USSD session fee: 450 TZS. App transfers free for amounts under 5,000 TZS",
+  "bands": [
+    {
+      "min": 1,
+      "max": 4999,
+      "transfer": 950
+    },
+    {
+      "min": 5000,
+      "max": 9999,
+      "transfer": 1800
+    },
+    {
+      "min": 10000,
+      "max": 19999,
+      "transfer": 2100
+    },
+    {
+      "min": 20000,
+      "max": 49999,
+      "transfer": 4000
+    },
+    {
+      "min": 50000,
+      "max": 99999,
+      "transfer": 5300
+    },
+    {
+      "min": 100000,
+      "max": 499999,
+      "transfer": 9100
+    },
+    {
+      "min": 500000,
+      "max": 999999,
+      "transfer": 10700
+    },
+    {
+      "min": 1000000,
+      "max": 3000000,
+      "transfer": 12000
+    }
+  ]
+}
