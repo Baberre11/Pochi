@@ -300,13 +300,6 @@ function setupListeners() {
   els.modalClose.addEventListener('click', closeModal);
   els.modalOverlay.addEventListener('click', closeModal);
   
-  // Compare rate
-  els.compareRateSelect.addEventListener('change', (e) => {
-    state.settings.compareRate = parseFloat(e.target.value);
-    saveSettings();
-    calculate();
-  });
-  
   // Theme toggle
   els.themeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
