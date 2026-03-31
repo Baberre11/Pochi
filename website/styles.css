@@ -211,8 +211,8 @@ body {
 
 .feature-card {
   background: var(--white);
-  border: 3px solid var(--black);
-  padding: 32px;
+  border: 2px solid var(--black);
+  padding: 24px;
   transition: transform 0.2s;
 }
 
@@ -220,31 +220,32 @@ body {
   transform: translateY(-4px);
 }
 
-.feature-icon {
-  width: 60px;
-  height: 60px;
+.feature-number {
+  width: 40px;
+  height: 40px;
   background: var(--green);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border: 2px solid var(--black);
 }
 
 .feature-card h3 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .feature-card p {
   color: var(--gray-dark);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* About Section */
@@ -409,6 +410,163 @@ body {
 
 .submit-btn:hover {
   background: var(--green-light);
+}
+
+/* Open Source Section */
+.open-source {
+  padding: 80px 20px;
+  background: var(--gray);
+  border-bottom: 3px solid var(--black);
+}
+
+.opensource-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.opensource-content p {
+  font-size: 18px;
+  color: var(--gray-dark);
+  margin-bottom: 32px;
+}
+
+.opensource-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.opensource-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid var(--black);
+  transition: all 0.2s;
+}
+
+.opensource-btn:hover {
+  background: var(--green);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+.code-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--gray-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Share Section */
+.share-section {
+  padding: 80px 20px;
+  background: var(--white);
+  border-bottom: 3px solid var(--black);
+  text-align: center;
+}
+
+.share-subtitle {
+  font-size: 18px;
+  color: var(--gray-dark);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid var(--black);
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.share-btn.twitter {
+  background: #000000;
+}
+
+.share-btn.facebook {
+  background: #1877f2;
+}
+
+.share-btn.whatsapp {
+  background: #25d366;
+}
+
+.share-btn.linkedin {
+  background: #0a66c2;
+}
+
+.share-icon {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.share-message {
+  background: var(--gray);
+  border: 2px solid var(--black);
+  padding: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.share-message p {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--black);
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* Support Section */
