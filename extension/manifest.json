@@ -2,11 +2,22 @@
   "manifest_version": 3,
   "name": "Pochi - Tanzania Mobile Money Fee Calculator",
   "version": "1.0.0",
-  "description": "Calculate M-Pesa and Tigo Pesa fees with global comparison awareness",
+  "description": "Calculate M-Pesa, Tigo Pesa, and bank transfer fees with transparency awareness. Compare Tanzania fees with global standards.",
   "permissions": ["storage"],
-  "host_permissions": ["file:///*"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "web_accessible_resources": [
     {
