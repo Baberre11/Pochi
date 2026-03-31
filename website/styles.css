@@ -318,70 +318,72 @@ body {
 
 .vc-word {
   white-space: nowrap;
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  opacity: 0.4;
+  transition: all 0.5s ease;
 }
 
 .vc-arrow {
   color: var(--white);
-  opacity: 0.3;
-  transition: all 0.3s ease;
+  opacity: 0.4;
+  display: inline-block;
+  transition: all 0.5s ease;
 }
 
-/* Animation for arrow + word pairs */
+/* Animation for arrow + word pairs - slower and smoother */
 .vc-arrow:nth-child(1),
 .vc-word:nth-child(2) {
-  animation: glowPair1 5s ease-in-out infinite;
+  animation: lightbulb1 12s ease-in-out infinite;
 }
 
 .vc-arrow:nth-child(3),
 .vc-word:nth-child(4) {
-  animation: glowPair2 5s ease-in-out infinite;
+  animation: lightbulb2 12s ease-in-out infinite;
 }
 
 .vc-arrow:nth-child(5),
 .vc-word:nth-child(6) {
-  animation: glowPair3 5s ease-in-out infinite;
+  animation: lightbulb3 12s ease-in-out infinite;
 }
 
 .vc-arrow:nth-child(7),
 .vc-word:nth-child(8) {
-  animation: glowPair4 5s ease-in-out infinite;
+  animation: lightbulb4 12s ease-in-out infinite;
 }
 
 .vc-arrow:nth-child(9),
 .vc-word:nth-child(10) {
-  animation: glowPair5 5s ease-in-out infinite;
+  animation: lightbulb5 12s ease-in-out infinite;
 }
 
-@keyframes glowPair1 {
-  0%, 18% { opacity: 0.3; color: var(--white); text-shadow: none; }
-  20% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
-  22%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+/* Smooth lightbulb-like glow animation */
+@keyframes lightbulb1 {
+  0%, 15% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
+  20% { opacity: 1; color: #ffff00; text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.6); transform: translateX(3px); }
+  25%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
-@keyframes glowPair2 {
-  0%, 38% { opacity: 0.3; color: var(--white); text-shadow: none; }
-  40% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
-  42%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+@keyframes lightbulb2 {
+  0%, 35% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
+  40% { opacity: 1; color: #ffff00; text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.6); transform: translateX(3px); }
+  45%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
-@keyframes glowPair3 {
-  0%, 58% { opacity: 0.3; color: var(--white); text-shadow: none; }
-  60% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
-  62%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+@keyframes lightbulb3 {
+  0%, 55% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
+  60% { opacity: 1; color: #ffff00; text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.6); transform: translateX(3px); }
+  65%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
-@keyframes glowPair4 {
-  0%, 78% { opacity: 0.3; color: var(--white); text-shadow: none; }
-  80% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
-  82%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+@keyframes lightbulb4 {
+  0%, 75% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
+  80% { opacity: 1; color: #ffff00; text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.6); transform: translateX(3px); }
+  85%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
-@keyframes glowPair5 {
-  0%, 95% { opacity: 0.3; color: var(--white); text-shadow: none; }
-  97% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
-  99%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+@keyframes lightbulb5 {
+  0%, 90% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
+  95% { opacity: 1; color: #ffff00; text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.6); transform: translateX(3px); }
+  100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
 /* Providers Section */
