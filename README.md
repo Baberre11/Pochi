@@ -26,8 +26,8 @@ Pochi makes the invisible visible. It translates abstract percentages into real 
 | Fee Amount | What You Give Up |
 |------------|------------------|
 | TZS 1,000 | 1kg Maize Flour (Unga ya Muhogo) |
-| TZS 2,500 | A full meal for your child |
-| TZS 7,000 | One week of transport to work |
+| TZS 3,600 | A full meal for you, Zege na Soda |
+| TZS 7,000 | 3 days of transport to work |
 
 When you see the cost in meals missed and journeys skipped, you understand why fee transparency matters.
 
