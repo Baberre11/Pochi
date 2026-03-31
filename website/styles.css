@@ -300,11 +300,22 @@ body {
 }
 
 .virtuous-cycle {
-  font-size: 16px;
+  display: inline-block;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--gray-dark);
+  color: var(--green);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  background: var(--white);
+  border: 3px solid var(--green);
+  padding: 16px 32px;
+  margin-top: 8px;
+}
+
+.virtuous-cycle::before {
+  content: '→';
+  margin-right: 8px;
+  color: var(--green);
 }
 
 /* Providers Section */
