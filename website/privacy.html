@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Pochi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #2d5016;
+      --green-light: #4a7c23;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --gray-dark: #666666;
+      --border: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: var(--green);
+      border-bottom: 3px solid var(--black);
+      padding: 16px 20px;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      color: var(--green);
+      border: 2px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: var(--gray-dark);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: var(--gray-dark);
+    }
+
+    .privacy-box {
+      background: var(--gray);
+      border: 3px solid var(--green);
+      padding: 32px;
+      margin: 40px 0;
+    }
+
+    .privacy-box h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .privacy-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .privacy-list li {
+      font-size: 16px;
+      padding: 12px 0;
+      padding-left: 32px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .privacy-list li:last-child {
+      border-bottom: none;
+    }
+
+    .privacy-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .highlight-box {
+      background: var(--green);
+      color: var(--white);
+      padding: 24px;
+      margin: 32px 0;
+      border: 3px solid var(--black);
+    }
+
+    .highlight-box p {
+      color: var(--white);
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">P</div>
+        <div class="brand-name">Pochi</div>
+      </a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: March 31, 2026</p>
+
+    <div class="highlight-box">
+      <p>🔒 Your privacy is our top priority. Pochi is designed to be 100% private by default.</p>
+    </div>
+
+    <h2>Our Commitment to Privacy</h2>
+    <p>At Pochi, we believe that financial tools should respect your privacy. We built Pochi with a "privacy-first" approach, meaning we collect the absolute minimum amount of data necessary to provide our service - which is essentially nothing.</p>
+
+    <div class="privacy-box">
+      <h3>🔒 What We DON'T Do</h3>
+      <ul class="privacy-list">
+        <li>We do NOT collect any personal information</li>
+        <li>We do NOT track your browsing activity</li>
+        <li>We do NOT send data to external servers</li>
+        <li>We do NOT use cookies for tracking</li>
+        <li>We do NOT sell or share any data with third parties</li>
+        <li>We do NOT require account creation</li>
+        <li>We do NOT access your financial accounts</li>
+      </ul>
+    </div>
+
+    <h2>What Data We Store</h2>
+    <p>Pochi stores only two types of data, and both are kept entirely on your local device:</p>
+
+    <h3>1. Calculation History</h3>
+    <p>Your recent fee calculations are stored locally in your browser's storage. This includes:</p>
+    <ul class="privacy-list">
+      <li>Provider name (e.g., "M-Pesa", "CRDB Bank")</li>
+      <li>Transaction amount</li>
+      <li>Calculated fee</li>
+      <li>Date/time of calculation</li>
+    </ul>
+    <p>This data never leaves your device. You can clear it anytime from the settings, or enable auto-delete to remove it automatically after 24 hours, 7 days, or 30 days.</p>
+
+    <h3>2. User Preferences</h3>
+    <p>Your settings are stored locally, including:</p>
+    <ul class="privacy-list">
+      <li>Language preference (English/Swahili)</li>
+      <li>Theme preference (Light/Dark mode)</li>
+      <li>Auto-delete history setting</li>
+      <li>Impact unit preference</li>
+      <li>Tax breakdown toggle</li>
+    </ul>
+
+    <h2>How We Process Data</h2>
+    <p><strong>All calculations happen on your device.</strong> When you enter a transaction amount:</p>
+    <ol style="margin-left: 24px; margin-bottom: 16px; color: var(--gray-dark);">
+      <li style="margin-bottom: 8px;">The calculation is performed locally using fee data stored in the extension</li>
+      <li style="margin-bottom: 8px;">No data is sent to any server</li>
+      <li style="margin-bottom: 8px;">No network request is made for the calculation</li>
+      <li>The result is displayed immediately on your screen</li>
+    </ol>
+
+    <h2>Fee Data Updates</h2>
+    <p>Pochi includes fee data directly in the extension package. When we update fee structures (e.g., when M-Pesa changes their pricing), we release a new version of the extension. This means:</p>
+    <ul class="privacy-list">
+      <li>No automatic data fetching from external sources</li>
+      <li>No background network activity</li>
+      <li>You control when to update the extension</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+    <p>Pochi does not use any third-party analytics, tracking, or advertising services. The only external links are:</p>
+    <ul class="privacy-list">
+      <li>Chrome Web Store (for installation/updates)</li>
+      <li>GitHub (for open-source code)</li>
+      <li>Support/donation links (only when you click them)</li>
+    </ul>
+
+    <h2>Your Rights</h2>
+    <p>You have complete control over your data:</p>
+    <ul class="privacy-list">
+      <li><strong>Access:</strong> All your data is visible in the extension</li>
+      <li><strong>Deletion:</strong> Clear history anytime from settings</li>
+      <li><strong>Export:</strong> Your data is stored in standard browser storage</li>
+      <li><strong>Opt-out:</strong> Enable "Never Save" to prevent history storage</li>
+    </ul>
+
+    <h2>Children's Privacy</h2>
+    <p>Pochi does not knowingly collect any personal information from anyone, including children under 13. The extension performs mathematical calculations only and does not require any personal information.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Since Pochi does not collect contact information, we cannot notify you directly of changes - please check this page periodically.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this privacy policy or our privacy practices, please contact us:</p>
+    <ul class="privacy-list">
+      <li>Via GitHub Issues: <a href="https://github.com/Baberre11/Pochi/issues" style="color: var(--green);">github.com/Baberre11/Pochi</a></li>
+      <li>Via Feature Request Form on our website</li>
+    </ul>
+
+    <div class="highlight-box" style="margin-top: 40px;">
+      <p>💚 Thank you for trusting Pochi. We're committed to keeping your financial calculations private, secure, and completely under your control.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="https://github.com/Baberre11/Pochi">GitHub</a>
+      <a href="index.html#support">Support</a>
+    </div>
+    <div class="footer-copyright">
+      © 2024 Pochi. Made with 💚 for Tanzania. Open source under MIT License.
+    </div>
+  </footer>
+</body>
+</html>

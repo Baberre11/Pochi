@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pochi - Tanzania Mobile Money Fee Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #2d5016;
+      --green-light: #4a7c23;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --gray-dark: #666666;
+      --border: #e0e0e0;
+      --red: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: var(--green);
+      border-bottom: 3px solid var(--black);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      color: var(--green);
+      border: 2px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--green);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 32px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid var(--white);
+      display: inline-block;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 40px;
+      background: var(--white);
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 3px solid var(--black);
+      transition: all 0.2s;
+      margin: 8px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 20px;
+      background: var(--gray);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 3px solid var(--black);
+      padding: 32px;
+      transition: transform 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--green);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border: 2px solid var(--black);
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .feature-card p {
+      color: var(--gray-dark);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 20px;
+      background: var(--white);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+
+    .about p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: var(--gray-dark);
+    }
+
+    .trust-tax-box {
+      background: var(--gray);
+      border: 3px solid var(--black);
+      padding: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .trust-tax-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .trust-tax-text {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .virtuous-cycle {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gray-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Providers Section */
+    .providers {
+      padding: 80px 20px;
+      background: var(--gray);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .providers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .provider-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .provider-type {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .provider-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .provider-fee {
+      font-size: 14px;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* Feature Request Form */
+    .feature-request {
+      padding: 80px 20px;
+      background: var(--white);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--green);
+      color: var(--white);
+      border: 2px solid var(--black);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: var(--green-light);
+    }
+
+    /* Support Section */
+    .support {
+      padding: 80px 20px;
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .support h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .support p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      opacity: 0.95;
+    }
+
+    .support-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .support-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--white);
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid var(--black);
+      transition: all 0.2s;
+    }
+
+    .support-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .support-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .support-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-icon">P</div>
+        <div class="brand-name">Pochi</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#request">Request Feature</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Know Your Fees.<br>Demand Transparency.</h1>
+      <p>Pochi is a free browser extension that calculates M-Pesa, Tigo Pesa, and bank transfer fees in real-time. Compare Tanzania's fees with global standards and understand the true cost of every transaction.</p>
+      <div>
+        <a href="#" class="cta-button">Get on Chrome Web Store</a>
+        <a href="#features" class="cta-button secondary">Learn More</a>
+      </div>
+      <div class="hero-tagline">
+        🇹🇿 Made for Tanzania • 💚 Free Forever • 🔒 100% Private
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Why Use Pochi?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Real-Time Fee Calculator</h3>
+          <p>Instantly calculate fees for M-Pesa, Tigo Pesa, Airtel Money, HaloPesa, and all major Tanzanian banks. Know exactly what you'll pay before you send.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏦</div>
+          <h3>Bank & Mobile Support</h3>
+          <p>Compare fees across 7 mobile money providers and 5 major banks including CRDB, NMB, KCB, Stanbic, and Equity Bank.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Global Comparison</h3>
+          <p>See how Tanzania's fees compare with Kenya (2%), Ghana (1.5%), and Uganda (1%). Understand where we stand.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍚</div>
+          <h3>Daily Impact Awareness</h3>
+          <p>See what your fees could buy: chapati, daladala fares, data bundles, or school supplies. Fees have real-world costs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>100% Private</h3>
+          <p>All calculations happen on your device. No data sent to servers. No tracking. No personal information collected.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Dark Mode & Themes</h3>
+          <p>Customize your experience with light/dark mode. Auto-delete history options. Tax breakdown showing VAT and excise duty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <h2>The Problem We're Solving</h2>
+        <p>In Tanzania, mobile money fees can reach up to 20% of small transactions. These fees are often hidden, unclear, and disproportionately affect low-income users who rely on mobile money for daily transactions.</p>
+        <p>Pochi brings transparency to this system. By showing exact fees, comparing with global standards, and highlighting what those fees could buy in daily life, we empower Tanzanians to make informed financial decisions.</p>
+        <p>High fees break trust. When you see money disappear, you return to cash. Cash excludes you from credit, savings, and growth. Transparency creates the demand for fair pricing.</p>
+        
+        <div class="trust-tax-box">
+          <div class="trust-tax-title">The Hidden Tax on Trust</div>
+          <div class="trust-tax-text">Every time you pay a fee without understanding it, you lose a little trust in the system.</div>
+          <div class="virtuous-cycle">Transparency → Demand → Lower Fees → Inclusion → Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Providers Section -->
+  <section class="providers">
+    <div class="container">
+      <h2 class="section-title">Supported Providers</h2>
+      <div class="providers-grid">
+        <div class="provider-card">
+          <div class="provider-type">Mobile Money</div>
+          <div class="provider-name">M-Pesa</div>
+          <div class="provider-fee">32 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Mobile Money</div>
+          <div class="provider-name">Tigo Pesa</div>
+          <div class="provider-fee">32 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Mobile Money</div>
+          <div class="provider-name">Airtel Money</div>
+          <div class="provider-fee">Coming Soon</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Mobile Money</div>
+          <div class="provider-name">HaloPesa</div>
+          <div class="provider-fee">Coming Soon</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Bank</div>
+          <div class="provider-name">CRDB Bank</div>
+          <div class="provider-fee">8 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Bank</div>
+          <div class="provider-name">NMB Bank</div>
+          <div class="provider-fee">3 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Bank</div>
+          <div class="provider-name">KCB Bank</div>
+          <div class="provider-fee">4 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Bank</div>
+          <div class="provider-name">Stanbic Bank</div>
+          <div class="provider-fee">5 fee bands</div>
+        </div>
+        <div class="provider-card">
+          <div class="provider-type">Bank</div>
+          <div class="provider-name">Equity Bank</div>
+          <div class="provider-fee">3 fee bands</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Request Section -->
+  <section class="feature-request" id="request">
+    <div class="container">
+      <h2 class="section-title">Request a Feature</h2>
+      <div class="form-container">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="feature-type">Feature Type</label>
+            <select id="feature-type" name="feature-type" required>
+              <option value="">Select type...</option>
+              <option value="new-provider">New Provider/Bank</option>
+              <option value="new-feature">New Feature</option>
+              <option value="bug-report">Bug Report</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Describe your request</label>
+            <textarea id="message" name="message" required placeholder="Tell us what you'd like to see in Pochi..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+        <p style="text-align: center; margin-top: 16px; color: var(--gray-dark); font-size: 14px;">
+          You'll need to set up a Formspree account and replace YOUR_FORM_ID in the form action.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section class="support" id="support">
+    <div class="container">
+      <h2>Support Pochi</h2>
+      <p>Pochi is free and open-source. Your support helps us add more providers, improve features, and keep the extension updated with the latest fee changes.</p>
+      <div class="support-buttons">
+        <a href="https://www.buymeacoffee.com/pochi" class="support-btn" target="_blank">☕ Buy Us Coffee</a>
+        <a href="https://github.com/Baberre11/Pochi" class="support-btn" target="_blank">⭐ Star on GitHub</a>
+        <a href="#" class="support-btn">💝 Donate via M-Pesa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://github.com/Baberre11/Pochi">GitHub</a>
+      <a href="#request">Contact</a>
+      <a href="#support">Support</a>
+    </div>
+    <div class="footer-copyright">
+      © 2024 Pochi. Made with 💚 for Tanzania. Open source under MIT License.
+    </div>
+  </footer>
+</body>
+</html>
