@@ -2,7 +2,7 @@
 
 > Making Financial Inclusion Real — A Tanzania Fee Calculator
 
-**Pochi** means "Wallet" in Swahili. It is a financial transparency tool that exposes the hidden cost of digital transactions, because trust is the foundation of economic growth.
+**Pochi** means "English" in Swahili. It is a financial transparency tool that exposes the hidden cost of digital transactions, because trust is the foundation of economic growth.
 
 ## The Hidden Tax on Trust
 
