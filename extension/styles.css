@@ -580,7 +580,7 @@ body {
 .history-fee {
   font-size: 13px;
   font-weight: 700;
-  color: var(--gray-dark);
+  color: #dc2626; /* Red color for fee percentage in history */
 }
 
 .empty-state {
