@@ -318,40 +318,70 @@ body {
 
 .vc-word {
   white-space: nowrap;
+  opacity: 0.5;
+  transition: all 0.3s ease;
 }
 
 .vc-arrow {
   color: var(--white);
   opacity: 0.3;
-  animation: arrowSequence 5s ease-in-out infinite;
+  transition: all 0.3s ease;
 }
 
-.vc-arrow:nth-child(2) { animation-delay: 0s; }
-.vc-arrow:nth-child(4) { animation-delay: 1s; }
-.vc-arrow:nth-child(6) { animation-delay: 2s; }
-.vc-arrow:nth-child(8) { animation-delay: 3s; }
+/* Animation for arrow + word pairs */
+.vc-arrow:nth-child(1),
+.vc-word:nth-child(2) {
+  animation: glowPair1 5s ease-in-out infinite;
+}
 
-@keyframes arrowSequence {
-  0%, 20% {
-    opacity: 0.3;
-    transform: translateX(0);
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(5px);
-    color: #ffff00;
-    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
-  }
-  15% {
-    opacity: 0.3;
-    transform: translateX(0);
-    color: var(--white);
-    text-shadow: none;
-  }
-  100% {
-    opacity: 0.3;
-    transform: translateX(0);
-  }
+.vc-arrow:nth-child(3),
+.vc-word:nth-child(4) {
+  animation: glowPair2 5s ease-in-out infinite;
+}
+
+.vc-arrow:nth-child(5),
+.vc-word:nth-child(6) {
+  animation: glowPair3 5s ease-in-out infinite;
+}
+
+.vc-arrow:nth-child(7),
+.vc-word:nth-child(8) {
+  animation: glowPair4 5s ease-in-out infinite;
+}
+
+.vc-arrow:nth-child(9),
+.vc-word:nth-child(10) {
+  animation: glowPair5 5s ease-in-out infinite;
+}
+
+@keyframes glowPair1 {
+  0%, 18% { opacity: 0.3; color: var(--white); text-shadow: none; }
+  20% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
+  22%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+}
+
+@keyframes glowPair2 {
+  0%, 38% { opacity: 0.3; color: var(--white); text-shadow: none; }
+  40% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
+  42%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+}
+
+@keyframes glowPair3 {
+  0%, 58% { opacity: 0.3; color: var(--white); text-shadow: none; }
+  60% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
+  62%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+}
+
+@keyframes glowPair4 {
+  0%, 78% { opacity: 0.3; color: var(--white); text-shadow: none; }
+  80% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
+  82%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
+}
+
+@keyframes glowPair5 {
+  0%, 95% { opacity: 0.3; color: var(--white); text-shadow: none; }
+  97% { opacity: 1; color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.9); transform: scale(1.05); }
+  99%, 100% { opacity: 0.3; color: var(--white); text-shadow: none; transform: scale(1); }
 }
 
 /* Providers Section */
