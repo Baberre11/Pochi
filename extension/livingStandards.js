@@ -12,7 +12,7 @@ const COMMODITIES = [
   { threshold: 2500, item: "Full meal + Soda", category: "food", icon: "soda" },
   { threshold: 3500, item: "1 day Daladala commute (to/from work)", category: "transport", icon: "bus" },
   { threshold: 5000, item: "5L cooking oil", category: "food", icon: "oil" },
-  { threshold: 7000, item: "1 week Daladala fares", category: "transport", icon: "bus" },
+  { threshold: 7000, item: "1-3 days Daladala fares", category: "transport", icon: "bus" },
   { threshold: 10000, item: "1kg meat + vegetables", category: "food", icon: "meat" },
   { threshold: 15000, item: "1 month school supplies", category: "education", icon: "books" },
   { threshold: 25000, item: "Electricity token (1 month, basic)", category: "utilities", icon: "lightning" },

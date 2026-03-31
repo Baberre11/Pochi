@@ -16,6 +16,9 @@ jobs:
     name: Validate JSON Files
     runs-on: ubuntu-latest
     
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -62,6 +65,17 @@ jobs:
           for file in extension/data/*.json; do
             if [ -f "$file" ]; then
               echo "Checking structure: $file"
+              
+              # Skip providers.json - it has a different structure
+              if [ "$(basename "$file")" == "providers.json" ]; then
+                if jq -e 'has("providers")' "$file" >/dev/null 2>&1; then
+                  echo "  [PASS] Valid providers structure: $file"
+                else
+                  echo "  [FAIL] Missing required 'providers' field: $file"
+                  exit_code=1
+                fi
+                continue
+              fi
               
               # Check required top-level fields
               if ! jq -e 'has("provider") and has("country") and has("currency") and has("bands")' "$file" >/dev/null 2>&1; then
@@ -118,6 +132,18 @@ jobs:
           
           for file in extension/data/*.json; do
             if [ -f "$file" ]; then
+              # Handle providers.json separately
+              if [ "$(basename "$file")" == "providers.json" ]; then
+                mobile_count=$(jq '.providers.mobile | length' "$file")
+                bank_count=$(jq '.providers.bank | length' "$file")
+                echo "File: $file"
+                echo "  Type: Provider Registry"
+                echo "  Mobile Providers: $mobile_count"
+                echo "  Bank Providers: $bank_count"
+                echo ""
+                continue
+              fi
+              
               provider=$(jq -r '.provider' "$file")
               country=$(jq -r '.country' "$file")
               bands_count=$(jq '.bands | length' "$file")
