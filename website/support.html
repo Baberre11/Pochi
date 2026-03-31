@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Us - Pochi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Support Page Specific Styles */
+    .support-hero {
+      background: var(--green);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .support-hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .support-hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    .transparency-section {
+      padding: 60px 20px;
+      background: var(--white);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .cost-breakdown {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--gray);
+      border: 3px solid var(--black);
+      padding: 40px;
+    }
+
+    .cost-breakdown h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .cost-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 2px solid var(--border);
+      font-size: 16px;
+    }
+
+    .cost-item:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--green);
+      margin-top: 8px;
+      padding-top: 24px;
+      border-top: 3px dashed var(--black);
+    }
+
+    .cost-label {
+      font-weight: 600;
+    }
+
+    .cost-amount {
+      font-weight: 700;
+    }
+
+    .monthly-need {
+      text-align: center;
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--green);
+      color: var(--white);
+      border: 3px solid var(--black);
+    }
+
+    .monthly-need h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .monthly-need p {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .math-breakdown {
+      font-size: 14px;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* Donation Options */
+    .donation-options {
+      padding: 60px 20px;
+      background: var(--gray);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .option-card {
+      background: var(--white);
+      border: 3px solid var(--black);
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .option-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--green);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+      border: 2px solid var(--black);
+    }
+
+    .option-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .option-card p {
+      font-size: 14px;
+      color: var(--gray-dark);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .donation-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      border: 2px solid var(--black);
+      transition: all 0.2s;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .donation-btn:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .donation-btn.secondary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .donation-btn.secondary:hover {
+      background: var(--gray);
+    }
+
+    /* Bread Metaphor Section */
+    .bread-section {
+      padding: 60px 20px;
+      background: var(--white);
+      border-bottom: 3px solid var(--black);
+      text-align: center;
+    }
+
+    .bread-visual {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      padding: 40px;
+      background: var(--gray);
+      border: 3px solid var(--black);
+      position: relative;
+    }
+
+    .bread-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .bread-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .bread-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .bread-equivalent {
+      font-size: 14px;
+      color: var(--gray-dark);
+      font-style: italic;
+    }
+
+    .bread-impact {
+      margin-top: 24px;
+      padding: 20px;
+      background: var(--green);
+      color: var(--white);
+      border: 2px solid var(--black);
+    }
+
+    .bread-impact p {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* Alternative Support */
+    .alternative-support {
+      padding: 60px 20px;
+      background: var(--gray);
+      border-bottom: 3px solid var(--black);
+    }
+
+    .alternative-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .alternative-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      padding: 32px;
+    }
+
+    .alternative-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .alternative-card p {
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .alternative-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .alternative-card li {
+      font-size: 14px;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--gray-dark);
+    }
+
+    .alternative-card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--white);
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      border: 2px solid var(--black);
+      transition: all 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    /* Progress Tracker */
+    .progress-section {
+      padding: 60px 20px;
+      background: var(--green);
+      color: var(--white);
+      border-bottom: 3px solid var(--black);
+      text-align: center;
+    }
+
+    .progress-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+
+    .progress-bar-container {
+      max-width: 600px;
+      margin: 0 auto 24px;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid var(--white);
+      height: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--white);
+      width: 65%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 16px;
+      font-weight: 700;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .progress-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .progress-stat {
+      text-align: center;
+    }
+
+    .progress-number {
+      font-size: 32px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .progress-label {
+      font-size: 14px;
+      opacity: 0.9;
+      text-transform: uppercase;
+    }
+
+    /* Thank You Section */
+    .thank-you {
+      padding: 60px 20px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .thank-you h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .thank-you p {
+      font-size: 16px;
+      color: var(--gray-dark);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .support-hero h1 {
+        font-size: 28px;
+      }
+
+      .support-hero p {
+        font-size: 16px;
+      }
+
+      .cost-breakdown {
+        padding: 24px;
+      }
+
+      .cost-item {
+        font-size: 14px;
+      }
+
+      .options-grid,
+      .alternative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .option-card,
+      .alternative-card {
+        padding: 24px;
+      }
+
+      .bread-visual {
+        padding: 24px;
+      }
+
+      .progress-stats {
+        gap: 24px;
+      }
+
+      .progress-number {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">P</div>
+        <div class="brand-name">Pochi</div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Support Hero -->
+  <section class="support-hero">
+    <h1>Support the Mission</h1>
+    <p>Help us keep Pochi free, private, and accessible to every Tanzanian. Together, we can make financial transparency a reality.</p>
+  </section>
+
+  <!-- Transparency Section -->
+  <section class="transparency-section">
+    <div class="cost-breakdown">
+      <h2>The Real Cost of Transparency</h2>
+      
+      <div class="cost-item">
+        <span class="cost-label">Secure Hosting (Digital Ocean)</span>
+        <span class="cost-amount">TZS 35,000/mo</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Domain & SSL Certificate</span>
+        <span class="cost-amount">TZS 5,000/mo</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Data Updates & Maintenance</span>
+        <span class="cost-amount">TZS 10,000/mo</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Total Monthly Need</span>
+        <span class="cost-amount">TZS 50,000/mo</span>
+      </div>
+
+      <div class="monthly-need">
+        <h3>The Math is Simple</h3>
+        <p>10 people donating TZS 5,000/month keeps Pochi online.</p>
+        <p class="math-breakdown">Or 25 people buying us one loaf each. Or 5 local businesses sponsoring. Every bit helps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bread Metaphor Section -->
+  <section class="bread-section">
+    <h2 class="section-title">Buy the Devs a Loaf</h2>
+    
+    <div class="bread-visual">
+      <div class="bread-icon">🍞</div>
+      <div class="bread-title">One Loaf of Bread</div>
+      <div class="bread-price">TZS 2,000</div>
+      <div class="bread-equivalent">About $0.80 USD</div>
+      
+      <div class="bread-impact">
+        <p>One loaf = One day of secure hosting. Feed the mission.</p>
+      </div>
+    </div>
+
+    <div style="max-width: 400px; margin: 0 auto;">
+      <a href="https://www.buymeacoffee.com/pochi" class="donation-btn" target="_blank">
+        Buy Us a Loaf (TZS 2,000)
+      </a>
+    </div>
+  </section>
+
+  <!-- Donation Options -->
+  <section class="donation-options">
+    <h2 class="section-title">Choose Your Impact</h2>
+    
+    <div class="options-grid">
+      <div class="option-card">
+        <div class="option-icon">🍞</div>
+        <h3>The Daily Loaf</h3>
+        <p>One-time donation to keep the lights on for a day. Perfect for trying us out.</p>
+        <button class="donation-btn secondary" onclick="alert('Coming soon: M-Pesa integration')">Donate TZS 2,000</button>
+      </div>
+
+      <div class="option-card">
+        <div class="option-icon">🥖</div>
+        <h3>The Weekend Bundle</h3>
+        <p>Keep Pochi running for a weekend. Help us stay online when you need us most.</p>
+        <button class="donation-btn secondary" onclick="alert('Coming soon: M-Pesa integration')">Donate TZS 5,000</button>
+      </div>
+
+      <div class="option-card">
+        <div class="option-icon">🍞</div>
+        <h3>The Monthly Baker</h3>
+        <p>Become a sustaining member. Your monthly support keeps us building features.</p>
+        <button class="donation-btn" onclick="alert('Coming soon: M-Pesa integration')">Donate TZS 10,000/mo</button>
+      </div>
+
+      <div class="option-card">
+        <div class="option-icon">🏪</div>
+        <h3>The Bakery Sponsor</h3>
+        <p>For businesses who believe in fair finance. Featured on our supporters page.</p>
+        <button class="donation-btn" onclick="alert('Coming soon: M-Pesa integration')">Donate TZS 50,000/mo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Tracker -->
+  <section class="progress-section">
+    <h2>This Month's Progress</h2>
+    
+    <div class="progress-bar-container">
+      <div class="progress-bar">65%</div>
+    </div>
+    
+    <div class="progress-stats">
+      <div class="progress-stat">
+        <span class="progress-number">TZS 32,500</span>
+        <span class="progress-label">Raised</span>
+      </div>
+      <div class="progress-stat">
+        <span class="progress-number">TZS 50,000</span>
+        <span class="progress-label">Goal</span>
+      </div>
+      <div class="progress-stat">
+        <span class="progress-number">18</span>
+        <span class="progress-label">Supporters</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alternative Support -->
+  <section class="alternative-support">
+    <h2 class="section-title">Other Ways to Help</h2>
+    
+    <div class="alternative-grid">
+      <div class="alternative-card">
+        <h3>Corporate Partnership</h3>
+        <p>Are you a fintech, bank, or company that shares our vision of fair finance in Tanzania? Partner with us.</p>
+        <ul>
+          <li>Featured "Supported by" badge</li>
+          <li>Co-branded impact reports</li>
+          <li>Early access to new features</li>
+          <li>Join the "Better Tanzania" network</li>
+        </ul>
+        <a href="mailto:partner@pochi.tz" class="contact-btn">Become a Partner</a>
+      </div>
+
+      <div class="alternative-card">
+        <h3>Merchandise with Message</h3>
+        <p>Wear the movement. Every t-shirt funds servers and spreads awareness.</p>
+        <ul>
+          <li>"Fair Fees for Tanzania" T-shirts</li>
+          <li>Pochi logo stickers</li>
+          <li>Digital receipts notebook</li>
+          <li>Coming soon: Hoodies & caps</li>
+        </ul>
+        <a href="#" class="contact-btn" onclick="alert('Merch store coming soon!')">Visit Store (Soon)</a>
+      </div>
+
+      <div class="alternative-card">
+        <h3>Share the Word</h3>
+        <p>Can't donate? No problem. Help us reach more Tanzanians who need fee transparency.</p>
+        <ul>
+          <li>Tell a friend about Pochi</li>
+          <li>Share on WhatsApp groups</li>
+          <li>Post about high fees you discovered</li>
+          <li>Review us on Chrome Web Store</li>
+        </ul>
+        <a href="index.html#share" class="contact-btn">Share Now</a>
+      </div>
+
+      <div class="alternative-card">
+        <h3>Contribute Code</h3>
+        <p>Developers, designers, data analysts—join our open-source mission.</p>
+        <ul>
+          <li>Add new provider fee data</li>
+          <li>Improve the UI/UX</li>
+          <li>Translate to more languages</li>
+          <li>Spread the word in tech communities</li>
+        </ul>
+        <a href="https://github.com/Baberre11/Pochi" class="contact-btn" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thank You -->
+  <section class="thank-you">
+    <h2>Thank You</h2>
+    <p>Whether you buy us a loaf, share our mission, or simply use Pochi to save money—you're part of the journey toward fairer finance in Tanzania. Together, we're building a Better Tanzania, one transaction at a time.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support Us</a>
+      <a href="https://github.com/Baberre11/Pochi">GitHub</a>
+    </div>
+    <div class="footer-copyright">
+      © 2024 Pochi. Made with 💚 for Tanzania. Open source under MIT License.
+    </div>
+    <div class="footer-legal">
+      Pochi is open-source software provided "as is" under the MIT License. While we strive for accuracy, the developer is not liable for any discrepancies in fee calculations or financial decisions made based on this tool.
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
