@@ -515,143 +515,94 @@ body {
   line-height: 1.6;
 }
 
-/* Steps Container (inside accordion) */
-.steps-container {
-  max-width: 700px;
-  margin: 0 auto;
+/* Simple Steps (inside accordion) */
+.simple-steps {
   padding: 32px;
 }
 
-.step {
+.simple-step {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 24px;
-  background: var(--gray);
-  border: 2px solid var(--black);
-  margin-bottom: 0;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.step-number {
-  width: 48px;
-  height: 48px;
+.simple-step:last-child {
+  border-bottom: none;
+}
+
+.simple-step.highlight {
+  background: var(--green);
+  margin: 0 -32px;
+  padding: 16px 32px;
+  color: var(--white);
+}
+
+.simple-step.highlight p {
+  color: var(--white);
+}
+
+.simple-number {
+  width: 32px;
+  height: 32px;
   background: var(--green);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 700;
   border: 2px solid var(--black);
   flex-shrink: 0;
 }
 
-.step-content h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.simple-step.highlight .simple-number {
+  background: var(--white);
+  color: var(--green);
 }
 
-.step-content p {
-  color: var(--gray-dark);
+.simple-step p {
   font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 8px;
+  color: var(--gray-dark);
+  line-height: 1.5;
+  margin: 0;
 }
 
-.step-time {
-  display: inline-block;
-  font-size: 12px;
+.simple-step strong {
+  color: var(--black);
   font-weight: 700;
-  color: var(--green);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: var(--white);
-  padding: 4px 12px;
-  border: 1px solid var(--black);
 }
 
-.step-arrow {
-  text-align: center;
-  font-size: 24px;
-  color: var(--green);
-  font-weight: 700;
-  padding: 8px 0;
-}
-
-.highlight-step {
-  background: var(--green);
+.simple-step.highlight strong {
   color: var(--white);
 }
 
-.highlight-step .step-number {
-  background: var(--white);
-  color: var(--green);
-}
-
-.highlight-step .step-content h3 {
-  color: var(--white);
-}
-
-.highlight-step .step-content p {
-  color: rgba(255,255,255,0.9);
-}
-
-.highlight-step .step-time {
-  background: var(--white);
-  color: var(--green);
-}
-
-.usage-tips {
-  max-width: 800px;
-  margin: 0 auto;
+/* Simple Tips */
+.simple-tips {
+  padding: 24px 32px;
   background: var(--gray);
-  border: 3px solid var(--black);
-  padding: 32px;
+  border-top: 2px solid var(--black);
 }
 
-.usage-tips h3 {
-  font-size: 20px;
+.simple-tips h4 {
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-align: center;
+  color: var(--green);
 }
 
-.tips-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tips-list li {
-  font-size: 15px;
-  padding: 12px 0;
-  padding-left: 28px;
-  position: relative;
-  border-bottom: 1px solid var(--border);
+.simple-tips p {
+  font-size: 14px;
   color: var(--gray-dark);
+  margin-bottom: 8px;
   line-height: 1.5;
 }
 
-.tips-list li:last-child {
-  border-bottom: none;
-}
-
-.tips-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--green);
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.tips-list li strong {
-  color: var(--black);
-  font-weight: 700;
+.simple-tips p:last-child {
+  margin-bottom: 0;
 }
 
 /* Providers Section */
