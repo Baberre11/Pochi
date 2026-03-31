@@ -397,16 +397,111 @@ body {
   98%, 100% { opacity: 0.4; color: var(--white); text-shadow: none; transform: translateX(0); }
 }
 
-/* How to Use Section */
+/* Help Center / Accordion Section */
 .how-to-use {
   padding: 80px 20px;
   background: var(--white);
   border-bottom: 3px solid var(--black);
 }
 
+.accordion {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  background: var(--gray);
+  border: 2px solid var(--black);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 24px 32px;
+  background: var(--white);
+  border: none;
+  border-bottom: 2px solid var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.accordion-header:hover {
+  background: var(--green);
+}
+
+.accordion-header:hover .accordion-title {
+  color: var(--white);
+}
+
+.accordion-header:hover .accordion-icon {
+  color: var(--white);
+}
+
+.accordion-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+}
+
+.accordion-icon {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--green);
+  transition: transform 0.3s;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: var(--white);
+}
+
+.accordion-panel.active {
+  max-height: 2000px;
+  transition: max-height 0.5s ease-in;
+}
+
+/* FAQ Styles */
+.faq-list {
+  padding: 32px;
+}
+
+.faq-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.faq-item p {
+  font-size: 15px;
+  color: var(--gray-dark);
+  line-height: 1.6;
+}
+
+/* Steps Container (inside accordion) */
 .steps-container {
   max-width: 700px;
-  margin: 0 auto 60px;
+  margin: 0 auto;
+  padding: 32px;
 }
 
 .step {

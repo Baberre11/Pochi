@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Mobile navigation toggle
   initMobileNav();
+  
+  // Accordion functionality
+  initAccordions();
 });
 
 // Smooth scroll for anchor links
@@ -111,6 +114,30 @@ function showNotification(message, type = 'info') {
   setTimeout(() => {
     notification.remove();
   }, 5000);
+}
+
+// Accordion functionality
+function initAccordions() {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const panel = this.nextElementSibling;
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other accordions
+      accordionHeaders.forEach(otherHeader => {
+        if (otherHeader !== this) {
+          otherHeader.setAttribute('aria-expanded', 'false');
+          otherHeader.nextElementSibling.classList.remove('active');
+        }
+      });
+      
+      // Toggle current accordion
+      this.setAttribute('aria-expanded', !isExpanded);
+      panel.classList.toggle('active');
+    });
+  });
 }
 
 // Console greeting
