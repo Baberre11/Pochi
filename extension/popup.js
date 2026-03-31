@@ -127,9 +127,24 @@ function updateSettingsUI() {
   }
 }
 
+// Update all elements with data-i18n attribute
+function updateTranslations() {
+  if (typeof t !== 'function') return;
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (key) {
+      el.textContent = t(key);
+    }
+  });
+}
+
 // Update all UI text based on current language
 function updateUI() {
   if (typeof t !== 'function') return;
+  
+  // Update translations for elements with data-i18n
+  updateTranslations();
   
   // Update button text
   els.btnLang.textContent = getLanguage() === 'en' ? 'EN/SW' : 'SW/EN';
@@ -186,22 +201,15 @@ function updateUI() {
     emptyState.textContent = t('noHistory');
   }
   
-  // Update modal
-  document.querySelector('.modal-header h2').textContent = t('settingsTitle');
-  document.querySelectorAll('.setting-label')[0].textContent = t('compareWith');
-  document.querySelectorAll('.setting-label')[1].textContent = t('theme');
-  document.querySelector('.text-btn').textContent = t('clearHistory');
-  
-  // Update compare options
-  const options = els.compareRateSelect.querySelectorAll('option');
-  options[0].textContent = t('kenya2');
-  options[1].textContent = t('ghana15');
-  options[2].textContent = t('uganda1');
-  options[3].textContent = t('custom');
+  // Update modal header
+  const modalHeader = document.querySelector('.modal-header h2');
+  if (modalHeader) modalHeader.textContent = t('settingsTitle');
   
   // Update theme buttons
-  document.querySelector('.theme-btn[data-theme="light"]').textContent = t('light');
-  document.querySelector('.theme-btn[data-theme="dark"]').textContent = t('dark');
+  const lightBtn = document.querySelector('.theme-btn[data-theme="light"]');
+  const darkBtn = document.querySelector('.theme-btn[data-theme="dark"]');
+  if (lightBtn) lightBtn.textContent = t('light');
+  if (darkBtn) darkBtn.textContent = t('dark');
   
   // Update page title
   document.title = t('appName') + ' - Fee Calculator';

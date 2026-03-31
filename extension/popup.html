@@ -155,82 +155,82 @@
       <div class="modal-body">
         <!-- Features Section -->
         <div class="setting-section">
-          <h3 class="setting-section-title">Features</h3>
+          <h3 class="setting-section-title" data-i18n="features">Features</h3>
           
           <div class="setting-item">
-            <label class="setting-label">Auto-Delete History</label>
+            <label class="setting-label" data-i18n="autoDeleteHistory">Auto-Delete History</label>
             <select id="auto-delete" class="setting-select">
-              <option value="24">24 Hours</option>
-              <option value="168">7 Days</option>
-              <option value="720">30 Days</option>
-              <option value="never">Never Save</option>
+              <option value="24" data-i18n="autoDelete24h">24 Hours</option>
+              <option value="168" data-i18n="autoDelete7d">7 Days</option>
+              <option value="720" data-i18n="autoDelete30d">30 Days</option>
+              <option value="never" data-i18n="autoDeleteNever">Never Save</option>
             </select>
-            <p class="setting-hint">Automatically clear your calculation history</p>
+            <p class="setting-hint" data-i18n="autoDeleteHint">Automatically clear your calculation history</p>
           </div>
         </div>
         
         <!-- Awareness Section -->
         <div class="setting-section">
-          <h3 class="setting-section-title">Awareness</h3>
+          <h3 class="setting-section-title" data-i18n="awareness">Awareness</h3>
           
           <div class="setting-item">
-            <label class="setting-label">Impact Unit</label>
+            <label class="setting-label" data-i18n="impactUnit">Impact Unit</label>
             <select id="impact-unit" class="setting-select">
-              <option value="all">All Categories</option>
-              <option value="food">Food</option>
-              <option value="transport">Transport</option>
-              <option value="data">Data & Internet</option>
+              <option value="all" data-i18n="impactAll">All Categories</option>
+              <option value="food" data-i18n="impactFood">Food</option>
+              <option value="transport" data-i18n="impactTransport">Transport</option>
+              <option value="data" data-i18n="impactData">Data & Internet</option>
             </select>
-            <p class="setting-hint">Choose which daily life benchmarks to show</p>
+            <p class="setting-hint" data-i18n="impactHint">Choose which daily life benchmarks to show</p>
           </div>
         </div>
         
         <!-- Advanced Section -->
         <div class="setting-section">
-          <h3 class="setting-section-title">Advanced</h3>
+          <h3 class="setting-section-title" data-i18n="advanced">Advanced</h3>
           
           <div class="setting-item">
             <label class="setting-toggle">
-              <span class="setting-label">Show Tax Breakdown</span>
+              <span class="setting-label" data-i18n="showTaxBreakdown">Show Tax Breakdown</span>
               <input type="checkbox" id="tax-breakdown" class="toggle-checkbox">
               <span class="toggle-slider"></span>
             </label>
-            <p class="setting-hint">Display VAT (18%) and Excise Duty components</p>
+            <p class="setting-hint" data-i18n="taxBreakdownHint">Display VAT (18%) and Excise Duty components</p>
           </div>
         </div>
         
         <!-- General Settings -->
         <div class="setting-section">
-          <h3 class="setting-section-title">General</h3>
+          <h3 class="setting-section-title" data-i18n="general">General</h3>
           
           <div class="setting-item">
-            <label class="setting-label">Theme</label>
+            <label class="setting-label" data-i18n="theme">Theme</label>
             <div class="theme-toggle">
-              <button class="theme-btn active" data-theme="light">Light</button>
-              <button class="theme-btn" data-theme="dark">Dark</button>
+              <button class="theme-btn active" data-theme="light" data-i18n="light">Light</button>
+              <button class="theme-btn" data-theme="dark" data-i18n="dark">Dark</button>
             </div>
           </div>
           
           <div class="setting-item">
-            <button id="clear-history" class="text-btn">Clear History Now</button>
+            <button id="clear-history" class="text-btn" data-i18n="clearHistory">Clear History Now</button>
           </div>
         </div>
         
         <!-- Support Development -->
         <div class="setting-section">
-          <h3 class="setting-section-title">Support Pochi</h3>
-          <p class="setting-hint" style="margin-bottom: 12px;">Your support helps us add better features for everyone</p>
-          <button id="btn-donate" class="donate-btn">☕ Buy Us Coffee</button>
+          <h3 class="setting-section-title" data-i18n="supportPochi">Support Pochi</h3>
+          <p class="setting-hint" style="margin-bottom: 12px;" data-i18n="supportText">Your support helps us add better features for everyone</p>
+          <button id="btn-donate" class="donate-btn" data-i18n="donate">☕ Buy Us Coffee</button>
         </div>
         
         <!-- Privacy Notice -->
         <div class="privacy-notice">
-          <h4 class="privacy-title">🔒 Your Privacy Matters</h4>
+          <h4 class="privacy-title" data-i18n="privacyTitle">🔒 Your Privacy Matters</h4>
           <ul class="privacy-list">
-            <li>All calculations happen on your device</li>
-            <li>No data is sent to any server</li>
-            <li>History is stored locally in your browser only</li>
-            <li>We don't track or collect any personal information</li>
+            <li data-i18n="privacyLocal">All calculations happen on your device</li>
+            <li data-i18n="privacyNoServer">No data is sent to any server</li>
+            <li data-i18n="privacyLocalStorage">History is stored locally in your browser only</li>
+            <li data-i18n="privacyNoTracking">We don't track or collect any personal information</li>
           </ul>
         </div>
       </div>
@@ -240,5 +240,6 @@
   <script src="translations.js"></script>
   <script src="livingStandards.js"></script>
   <script src="popup.js"></script>
+  <script src="test.js"></script>
 </body>
 </html>

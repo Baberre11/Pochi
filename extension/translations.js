@@ -61,17 +61,55 @@ const TRANSLATIONS = {
     // Footer
     clearHistory: 'Clear History',
     
-    // Settings modal
-    settingsTitle: 'Settings',
-    compareWith: 'Compare with',
-    kenya2: 'Kenya (2%)',
-    ghana15: 'Ghana (1.5%)',
-    uganda1: 'Uganda (1%)',
-    custom: 'Custom',
+    // Settings sections
+    features: 'Features',
+    awareness: 'Awareness',
+    advanced: 'Advanced',
+    general: 'General',
+    supportPochi: 'Support Pochi',
+    
+    // Settings - Features
+    autoDeleteHistory: 'Auto-Delete History',
+    autoDelete24h: '24 Hours',
+    autoDelete7d: '7 Days',
+    autoDelete30d: '30 Days',
+    autoDeleteNever: 'Never Save',
+    autoDeleteHint: 'Automatically clear your calculation history',
+    
+    // Settings - Awareness
+    impactUnit: 'Impact Unit',
+    impactAll: 'All Categories',
+    impactFood: 'Food',
+    impactTransport: 'Transport',
+    impactData: 'Data & Internet',
+    impactHint: 'Choose which daily life benchmarks to show',
+    
+    // Settings - Advanced
+    showTaxBreakdown: 'Show Tax Breakdown',
+    taxBreakdownHint: 'Display VAT (18%) and Excise Duty components',
+    baseFee: 'Base Fee',
+    vat: 'VAT (18%)',
+    exciseDuty: 'Excise Duty (10%)',
+    
+    // Settings - General
     theme: 'Theme',
     light: 'Light',
     dark: 'Dark',
-    close: 'Close'
+    close: 'Close',
+    
+    // Settings - Support
+    supportText: 'Your support helps us add better features for everyone',
+    donate: '☕ Buy Us Coffee',
+    
+    // Privacy
+    privacyTitle: '🔒 Your Privacy Matters',
+    privacyLocal: 'All calculations happen on your device',
+    privacyNoServer: 'No data is sent to any server',
+    privacyLocalStorage: 'History is stored locally in your browser only',
+    privacyNoTracking: 'We don\'t track or collect any personal information',
+    
+    // Settings modal
+    settingsTitle: 'Settings'
   },
   
   sw: {
@@ -132,17 +170,55 @@ const TRANSLATIONS = {
     // Footer
     clearHistory: 'Futa Historia',
     
-    // Settings modal
-    settingsTitle: 'Mipangilio',
-    compareWith: 'Linganisha na',
-    kenya2: 'Kenya (2%)',
-    ghana15: 'Ghana (1.5%)',
-    uganda1: 'Uganda (1%)',
-    custom: 'Kawaida',
+    // Settings sections
+    features: 'Vipengele',
+    awareness: 'Uelewa',
+    advanced: 'Advanced',
+    general: 'Jumla',
+    supportPochi: 'Support Pochi',
+    
+    // Settings - Features
+    autoDeleteHistory: 'Futa Historia Moja kwa Moja',
+    autoDelete24h: 'Saa 24',
+    autoDelete7d: 'Siku 7',
+    autoDelete30d: 'Siku 30',
+    autoDeleteNever: 'Usihifadhi Kabisa',
+    autoDeleteHint: 'Futa historia ya mahesabu moja kwa moja',
+    
+    // Settings - Awareness
+    impactUnit: 'Kipengele cha Athari',
+    impactAll: 'Makundi Yote',
+    impactFood: 'Chakula',
+    impactTransport: 'Usafiri',
+    impactData: 'Data & Internet',
+    impactHint: 'Chagua viwango gani vya maisha vya kila siku vya kuonyesha',
+    
+    // Settings - Advanced
+    showTaxBreakdown: 'Onyesha Mgawanyo wa Kodi',
+    taxBreakdownHint: 'Onyesha VAT (18%) na sehemu ya Kodi ya Utumizi',
+    baseFee: 'Ada ya Msingi',
+    vat: 'VAT (18%)',
+    exciseDuty: 'Kodi ya Utumizi (10%)',
+    
+    // Settings - General
     theme: 'Mandhari',
     light: 'Nuru',
     dark: 'Giza',
-    close: 'Funga'
+    close: 'Funga',
+    
+    // Settings - Support
+    supportText: 'Msaada wako husaidia kuongeza vipengele bora kwa kila mtu',
+    donate: '☕ Nunua Kahawa',
+    
+    // Privacy
+    privacyTitle: '🔒 Faragha Yako Ina Maana',
+    privacyLocal: 'Mahesabu yote yanafanyika kwenye kifaa chako',
+    privacyNoServer: 'Hakuna data inayotumwa kwa seva yoyote',
+    privacyLocalStorage: 'Historia imehifadhiwa ndani ya kivinjari chako tu',
+    privacyNoTracking: 'Hatufuatilii au kukusanya maelezo yoyote ya kibinafsi',
+    
+    // Settings modal
+    settingsTitle: 'Mipangilio'
   }
 };
 
