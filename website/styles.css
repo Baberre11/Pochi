@@ -578,6 +578,16 @@ body {
   color: var(--white);
 }
 
+.simple-link {
+  color: var(--green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.simple-link:hover {
+  color: var(--green-light);
+}
+
 /* Simple Tips */
 .simple-tips {
   padding: 24px 32px;
